@@ -111,9 +111,9 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
               child: Container(
                 width: screenHeight * 0.6,
                 height: screenHeight * 0.6,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xFFBBDEFB), // azul claro sólido
+                  color: Colors.grey[300],
                 ),
               ),
             ),
@@ -123,9 +123,9 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
               child: Container(
                 width: screenHeight * 0.4,
                 height: screenHeight * 0.4,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xFF90CAF9), // azul más suave
+                  color: Colors.grey[400],
                 ),
               ),
             ),
@@ -143,7 +143,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                           'Bienvenido',
                           style: theme.textTheme.headlineSmall?.copyWith(
                             fontWeight: FontWeight.bold,
-                            color: Colors.indigo,
+                            color: Colors.grey[800],
                           ),
                         ),
                       ),
@@ -156,7 +156,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                         child: Text(
                           'Ingrese sus credenciales para continuar',
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: Colors.grey[800],
+                            color: Colors.grey[700],
                           ),
                         ),
                       ),
@@ -182,8 +182,8 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
-                                    borderSide: const BorderSide(
-                                      color: Colors.indigo,
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[800]!,
                                       width: 2,
                                     ),
                                   ),
@@ -218,8 +218,8 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
-                                    borderSide: const BorderSide(
-                                      color: Colors.indigo,
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[800]!,
                                       width: 2,
                                     ),
                                   ),
@@ -231,7 +231,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                                 Text(
                                   _errorMessage!,
                                   style: const TextStyle(
-                                    color: Colors.red,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               const SizedBox(height: 20),
@@ -245,7 +245,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12),
                                     ),
-                                    backgroundColor: Colors.indigo,
+                                    backgroundColor: Colors.grey[800],
                                     foregroundColor: Colors.white,
                                   ),
                                   child: _isLoading
@@ -264,7 +264,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                               Text(
                                 'Carros Electricos.co',
                                 style: TextStyle(
-                                  color: Colors.grey[700],
+                                  color: Colors.grey[600],
                                   fontStyle: FontStyle.italic,
                                 ),
                               ),
