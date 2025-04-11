@@ -1,8 +1,9 @@
+import 'package:carritoselectricos/controller/auth_controller.dart';
+import 'package:carritoselectricos/main.dart';
+import 'package:carritoselectricos/view/carros_view.dart';
+import 'package:carritoselectricos/view/qr_scanner_view.dart';
 import 'package:flutter/material.dart';
-import 'package:actividad_1/view/carros_view.dart';
-import 'package:actividad_1/view/qr_scanner_view.dart';
-import 'package:actividad_1/controller/auth_controller.dart';
-import 'package:actividad_1/view/login_view.dart';
+
 
 class HomeMenuView extends StatelessWidget {
   const HomeMenuView({super.key});

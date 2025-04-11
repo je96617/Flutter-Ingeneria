@@ -1,11 +1,14 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:actividad_1/model/carro_model.dart';
+
+import 'package:carritoselectricos/model/carro_model.dart';
+
+
 
 
 class CarrosController {
   static const String _baseUrl = 'https://67f7d1812466325443eadd17.mockapi.io/carros';
+  
+  static get http => null;
 
   static Future<List<Carro>> obtenerCarros() async {
     final response = await http.get(Uri.parse(_baseUrl));

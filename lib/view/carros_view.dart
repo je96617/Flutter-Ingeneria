@@ -1,8 +1,8 @@
+import 'package:carritoselectricos/controller/auth_controller.dart';
+import 'package:carritoselectricos/controller/carros_controller.dart';
+import 'package:carritoselectricos/main.dart';
+import 'package:carritoselectricos/model/carro_model.dart';
 import 'package:flutter/material.dart';
-import 'package:actividad_1/controller/carros_controller.dart';
-import 'package:actividad_1/controller/auth_controller.dart';
-import 'package:actividad_1/model/carro_model.dart';
-import 'package:actividad_1/view/login_view.dart';
 
 class CarrosView extends StatefulWidget {
   const CarrosView({super.key});

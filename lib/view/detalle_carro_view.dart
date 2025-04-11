@@ -1,5 +1,5 @@
+import 'package:carritoselectricos/model/carro_model.dart';
 import 'package:flutter/material.dart';
-import 'package:actividad_1/model/carro_model.dart'; // Asegúrate de que el path sea correcto
 
 class DetalleCarroView extends StatefulWidget {
   final Carro carro;
