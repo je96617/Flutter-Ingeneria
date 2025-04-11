@@ -1,5 +1,6 @@
-import 'package:actividad_1/controller/auth_controller.dart';
-import 'package:actividad_1/view/home_menu_view.dart';
+
+import 'package:carritoselectricos/controller/auth_controller.dart';
+import 'package:carritoselectricos/view/home_menu_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -154,7 +155,7 @@ class _LoginViewState extends State<LoginView> with TickerProviderStateMixin {
                       child: FadeTransition(
                         opacity: _fadeAnimation,
                         child: Text(
-                          'Ingrese sus credenciales para continuar',
+                          'Ingrese sus datos para continuar',
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: Colors.grey[700],
                           ),

@@ -1,11 +1,8 @@
-
 import 'dart:convert';
 import 'package:carritoselectricos/model/carro_model.dart';
 import 'package:carritoselectricos/view/home_menu_view.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:mobile_scanner/mobile_scanner.dart';
 
 
 class QRScannerView extends StatefulWidget {
@@ -40,44 +37,46 @@ class _QRScannerViewState extends State<QRScannerView> {
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error al obtener carros: \$e')),
+        SnackBar(content: Text('Error al obtener carros: $e')),
       );
     }
   }
 
-  void _onDetect(BarcodeCapture barcode) {
-  if (_scanned || listaDeCarros.isEmpty) return;
+  void _onDetect(BarcodeCapture barcodeCapture) {
+    if (_scanned || listaDeCarros.isEmpty) return;
 
-  final code = barcode.barcodes.first.rawValue;
-  if (code == null || code.isEmpty) return;
+    final Barcode barcode = barcodeCapture.barcodes.first;
+    final String? code = barcode.rawValue;
 
-  Carro? carro;
-  try {
-    carro = listaDeCarros.firstWhere(
-      (c) => c.placa.toLowerCase() == code.toLowerCase(),
-    );
-  } catch (_) {
-    carro = null;
+    if (code == null || code.isEmpty) return;
+
+    Carro? carro;
+    try {
+      carro = listaDeCarros.firstWhere(
+        (c) => c.placa.toLowerCase() == code.toLowerCase(),
+      );
+    } catch (_) {
+      carro = null;
+    }
+
+    if (carro != null) {
+      setState(() {
+        _scanned = true;
+        carroDetectado = carro;
+        _notificandoError = false;
+      });
+    } else if (!_notificandoError) {
+      _notificandoError = true;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Carro no encontrado')),
+      );
+
+      Future.delayed(const Duration(seconds: 1), () {
+        _notificandoError = false;
+      });
+    }
   }
-
-  if (carro != null) {
-    setState(() {
-      _scanned = true;
-      carroDetectado = carro;
-      _notificandoError = false;
-    });
-  } else if (!_notificandoError) {
-    _notificandoError = true;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Carro no encontrado')),
-    );
-
-    Future.delayed(const Duration(seconds: 1), () {
-      _notificandoError = false;
-    });
-  }
-}
 
   void _reiniciarEscaneo() {
     setState(() {
@@ -181,7 +180,4 @@ class _QRScannerViewState extends State<QRScannerView> {
       ),
     );
   }
-}
-
-class BarcodeCapture {
 }
